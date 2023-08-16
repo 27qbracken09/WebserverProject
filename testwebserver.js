@@ -137,7 +137,7 @@ fs.readFile("./Casino2.avif", function(error, img){
 
 
 var server = http.createServer(function(request, response){
-    if (request.url == '/' && !detectMob()){
+    if ((request.url == '/') && !detectMob){
         response.writeHeader(200, {"Content-Type": "text/html"});
         response.write(homepage);
         response.end();
