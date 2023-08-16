@@ -5,21 +5,10 @@ var fs = require('fs')
 const PORT = 80
 
 
-function detectMob() {
-    const toMatch = [
-        /Android/i,
-        /webOS/i,
-        /iPhone/i,
-        /iPad/i,
-        /iPod/i,
-        /BlackBerry/i,
-        /Windows Phone/i
-    ];
 
-    return toMatch.some((toMatchItem) => {
-        return navigator.userAgent.match(toMatchItem);
-    });
-}
+
+    
+    
 
 
 
@@ -137,7 +126,7 @@ fs.readFile("./Casino2.avif", function(error, img){
 
 
 var server = http.createServer(function(request, response){
-    if ((request.url == '/') && !detectMob){
+    if (request.url == '/'){
         response.writeHeader(200, {"Content-Type": "text/html"});
         response.write(homepage);
         response.end();
